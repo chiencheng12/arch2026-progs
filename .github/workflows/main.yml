@@ -93,12 +93,13 @@ jobs:
   # budgets, vectors, scripts, Makefile) is the instructor's, from main; only
   # src/<prog>/ comes from the submission, so editing a test or a budget in a
   # fork changes nothing. The emulator is built from the instructor's rules too.
-  # On a push to main of the instructor's repository the skeleton is not graded;
-  # the reference job below grades the reference solutions instead.
+  # The instructor's repository holds the skeleton, which scores 0 by design,
+  # so it is not graded here: main is covered by the reference job below, and a
+  # pull request that changes the harness by the manual reference-pr workflow.
   grade:
     if: >-
-      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) &&
-      !(github.repository == 'sysprog21/arch2026-progs' && github.ref == 'refs/heads/main')
+      github.repository != 'sysprog21/arch2026-progs' &&
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
