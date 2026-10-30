@@ -77,7 +77,7 @@ hygiene) pass for any skeleton, so each counts in proportion to the programs tha
 of the HackMD note, the optimization results and the CodeTrial mock interview are reviewed by hand and are not
 part of the script. Run `scripts/driver.py --help` for the options, for example `--prog gcd` and `--min-tests`.
 
-The skeleton starts red on purpose: the dummy implementations return constants, so no program passes until it is written.
+The skeleton starts red on purpose: the dummy implementations return constants, so no program passes until it is written. On `main` of the instructor's repository, CI grades the reference solutions from a private repository instead of the skeleton, so it is green; no fork, branch or pull request has access to them, and your fork stays red until you write the code.
 
 ## Layout
 
